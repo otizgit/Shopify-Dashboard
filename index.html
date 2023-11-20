@@ -8,9 +8,15 @@
     <script defer src="./app.js"></script>
   </head>
   <body>
-    <header class="flex">
-      <div style="flex: 1">
+    <header class="flex gap">
+      <div class="logo-wrapper flex-plain gap">
         <img
+          class="bag"
+          src="https://crushingit.tech/hackathon-assets/shopify-icon.svg"
+          alt=""
+        />
+        <img
+          class="logo"
           src="https://crushingit.tech/hackathon-assets/shopify-icon-desktop.svg"
           alt="logo"
         />
@@ -37,7 +43,10 @@
       </div>
 
       <div class="notification-container">
-        <button style="border: none;" class="notification-box custom-radius">
+        <button
+          style="border: none"
+          class="pointer notification-box custom-radius"
+        >
           <div>
             <svg
               width="13.85"
@@ -55,7 +64,10 @@
             </svg>
           </div>
         </button>
-        <button style="border: none;" class="user-container custom-radius gap flex-plain">
+        <button
+          style="border: none"
+          class="pointer user-container custom-radius gap flex-plain"
+        >
           <p>Davii Collections</p>
           <div class="user custom-radius"><p class="custom-fz">DC</p></div>
         </button>
@@ -63,29 +75,77 @@
     </header>
 
     <section>
-    <div class="section-content-container">
+      <div class="section-content-container">
         <div class="trial-box custom-radius flex">
-          <p class="custom-fz font-color font-weight">
-            Extend your trial for $1/month for 3 months on select plans.
-          </p>
-          <div class="gap flex-plain">
-            <button class="select-btn custom-radius custom-fz no-border">Select a plan</butto>
-            <button style="background: transparent;" class="no-border close-btn">
-              <svg width="12" height="12" viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg">
-                  <path d="M9.96967 11.0303C10.2626 11.3232 10.7374 11.3232 11.0303 11.0303C11.3232 10.7374 11.3232 10.2626 11.0303 9.96967L7.06066 6L11.0303 2.03033C11.3232 1.73744 11.3232 1.26256 11.0303 0.96967C10.7374 0.676777 10.2626 0.676777 9.96967 0.96967L6 4.93934L2.03033 0.96967C1.73744 0.676777 1.26256 0.676777 0.96967 0.96967C0.676777 1.26256 0.676777 1.73744 0.96967 2.03033L4.93934 6L0.96967 9.96967C0.676777 10.2626 0.676777 10.7374 0.96967 11.0303C1.26256 11.3232 1.73744 11.3232 2.03033 11.0303L6 7.06066L9.96967 11.0303Z" fill="#E3E3E3"/>
-                  </svg>
+          <div class="top-text-wrapper gap flex" style="flex: 1;">
+            <p class="custom-fz font-color font-weight">
+              Extend your trial for $1/month for 3 months on select plans.
+            </p>
+            <button
+              class="pointer select-btn custom-radius custom-fz no-border"
+            >
+              Select a plan
+            </button>
+          </div>
+          <div>
+            <button
+              style="background: transparent"
+              class="pointer no-border close-btn"
+            >
+              <svg
+                width="12"
+                height="12"
+                viewBox="0 0 12 12"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M9.96967 11.0303C10.2626 11.3232 10.7374 11.3232 11.0303 11.0303C11.3232 10.7374 11.3232 10.2626 11.0303 9.96967L7.06066 6L11.0303 2.03033C11.3232 1.73744 11.3232 1.26256 11.0303 0.96967C10.7374 0.676777 10.2626 0.676777 9.96967 0.96967L6 4.93934L2.03033 0.96967C1.73744 0.676777 1.26256 0.676777 0.96967 0.96967C0.676777 1.26256 0.676777 1.73744 0.96967 2.03033L4.93934 6L0.96967 9.96967C0.676777 10.2626 0.676777 10.7374 0.96967 11.0303C1.26256 11.3232 1.73744 11.3232 2.03033 11.0303L6 7.06066L9.96967 11.0303Z"
+                  fill="#E3E3E3"
+                />
+              </svg>
             </button>
           </div>
         </div>
-  
+
         <div class="setup-box">
-            <div class="setup-intro-container flex gap">
-                <div class="setup-content">
-                    <p class="setup-guide">Setup guide</p>
+          <div class="setup-intro-container gap">
+            <div class="setup-content">
+              <p class="setup-guide">Setup guide</p>
+              <p style="margin-bottom: 16px" class="fz-13 font-color-dark">
+                Use this personalized guide to get your store up and running.
+              </p>
+              <div class="flex-plain gap">
+                <p class="font-color-dark custom-fz">1 / 5 completed</p>
+                <div class="progress-bar">
+                  <div class="progress"></div>
                 </div>
+              </div>
             </div>
+            <div>
+              <button
+                style="background: transparent; width: 28px; height: 28px"
+                class="pointer no-border"
+              >
+                <svg
+                  width="10"
+                  height="6"
+                  viewBox="0 0 10 6"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    fill-rule="evenodd"
+                    clip-rule="evenodd"
+                    d="M0.71967 0.46967C1.01256 0.176777 1.48744 0.176777 1.78033 0.46967L5.25 3.93934L8.71967 0.46967C9.01256 0.176777 9.48744 0.176777 9.78033 0.46967C10.0732 0.762563 10.0732 1.23744 9.78033 1.53033L5.78033 5.53033C5.48744 5.82322 5.01256 5.82322 4.71967 5.53033L0.71967 1.53033C0.426777 1.23744 0.426777 0.762563 0.71967 0.46967Z"
+                    fill="#4A4A4A"
+                  />
+                </svg>
+              </button>
+            </div>
+          </div>
         </div>
-    </div>
+      </div>
     </section>
   </body>
 </html>

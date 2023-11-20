@@ -59,17 +59,33 @@
 .font-color {
   color: var(--lightFontClr);
 }
+.font-color-dark {
+  color: var(--darkFontClr);
+}
 .font-weight {
   font-weight: 500;
 }
 .no-border {
   border: none;
 }
+.fz-13 {
+  font-size: 13px;
+}
+.pointer {
+  cursor: pointer;
+}
 
 header {
   padding-inline: 12px;
   height: 56px;
   background-color: var(--grey300);
+}
+
+.logo-wrapper {
+  flex: 1;
+}
+.bag {
+  display: none;
 }
 
 .search-box {
@@ -93,7 +109,14 @@ header {
   border: 1px solid var(--stroke200);
   padding-left: 30px;
   outline: none;
-  color: var(--lightFontClr);
+  color: var(--bgWhite);
+}
+.search-box input:hover {
+  border: 1px solid var(--stroke100);
+}
+.search-box input:focus,
+.search-box input:active {
+  border: 2px solid var(--stroke100);
 }
 .search-box input::placeholder {
   font-weight: 500;
@@ -120,6 +143,13 @@ header {
   height: 32px;
   padding: 2px 2px 2px 8px;
   background-color: var(--grey200);
+}
+.user-container:hover {
+  background-color: var(--grey100);
+}
+.user-container:focus,
+.user-container:active {
+  background-color: var(--grey50);
 }
 .user-container p {
   font-size: 12px;
@@ -168,14 +198,73 @@ section {
 }
 
 .setup-box {
-  padding: 8px;
+  padding: 16px;
   border-radius: 18px;
   border: 1px solid var(--stroke50);
   background-color: var(--bgWhite);
 }
 
+.setup-intro-container {
+  display: flex;
+  justify-content: space-between;
+}
+
 .setup-guide {
-    font-weight: 600;
-    font-size: 14px;
-    color: var(--darkFontClr);
+  font-weight: 600;
+  font-size: 14px;
+  color: var(--darkFontClr);
+  line-height: 19.6px;
+}
+
+.progress-bar {
+  width: 72px;
+  border-radius: 18px;
+  overflow: hidden;
+  height: 6px;
+  border: 1px solid var(--stroke50);
+}
+.progress {
+  width: 18px;
+  height: 6px;
+  background-color: var(--grey300);
+}
+
+@media (max-width: 1023px) {
+  .bag {
+    display: block;
+  }
+  .logo {
+    display: none;
+  }
+  .user-container > p {
+    display: none;
+  }
+  .user-container {
+    width: fit-content;
+    height: 32px;
+    padding: unset;
+  }
+}
+@media (max-width: 900px) {
+  header {
+    width: 100%;
+  }
+  .logo-wrapper {
+    flex: unset;
+  }
+  .search-box {
+    width: 100%;
+  }
+  .section-content-container {
+    width: 100%;
+  }
+  .top-text-wrapper{
+    flex-direction: column;
+    align-items: start;
+    gap: 16px;
+  }
+  .trial-box {
+    border-radius: unset;
+    align-items: start;
+  }
 }
