@@ -364,9 +364,10 @@ section {
   background-color: var(--bgWhite);
   border: 1px solid var(--stroke50);
   border-radius: 14px;
-  z-index: 3;
+  z-index: -1;
   transition: all 0.3s ease;
   transform: translateY(-110%);
+  opacity: 0;
   box-shadow: 0 4px 8px hsla(0, 0%, 0%, 0.05);
 }
 
@@ -427,7 +428,8 @@ section {
   background-color: var(--bgWhite);
   border: 1px solid var(--stroke50);
   border-radius: 14px;
-  z-index: 3;
+  z-index: -1;
+  opacity: 0;
   transition: all 0.3s ease;
   transform: translateY(-110%);
   box-shadow: 0 4px 8px hsla(0, 0%, 0%, 0.05);
@@ -469,6 +471,8 @@ section {
 
 .show-wrapper {
   transform: translateY(0%);
+  opacity: 1;
+  z-index: 3;
 }
 .show-overlay {
     transform: scale(1);
@@ -488,6 +492,9 @@ section {
     width: fit-content;
     height: 32px;
     padding: unset;
+  }
+  .user {
+    height: 100%;
   }
 }
 @media (max-width: 900px) {
