@@ -1,42 +1,181 @@
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&display=swap");
 
 * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    font-family: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Inter", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI",
+    Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
 }
 
 :root {
-    /* Nav Bar: */
-    --navLighter: hsla(285, 2%, 39%, 1);
-    --navLight: hsla(0, 0%, 38%, 1);
-    --navDark: hsla(0, 0%, 19%, 1);
-    --navDarker: hsla(0, 0%, 10%, 1);
+  /* Nav Bar: */
+  --grey50: hsla(285, 2%, 39%, 1);
+  --grey100: hsla(0, 0%, 38%, 1);
+  --grey200: hsla(0, 0%, 19%, 1);
+  --grey300: hsla(0, 0%, 10%, 1);
 
-    /* ! Font Color: */
-    --lightFontClr: hsl(0, 0%, 89%); 
-    --midFontClr: hsl(0, 0%, 38%);
-    --darkFontClr:hsla(0, 0%, 19%, 1);
+  /* ! Font Color: */
+  --lightFontClr: hsl(0, 0%, 89%);
+  --midFontClr: hsl(0, 0%, 38%);
+  --darkFontClr: hsla(0, 0%, 19%, 1);
 
-    /** Strokes */
-    --stroke50: hsla(0, 0%, 86%, 1);
-    --stroke100: hsla(0, 0%, 88%, 1);
-    --stroke200: hsla(0, 0%, 38%, 1);
+  /** Strokes */
+  --stroke50: hsla(0, 0%, 86%, 1);
+  --stroke100: hsla(0, 0%, 88%, 1);
+  --stroke200: hsla(0, 0%, 38%, 1);
 
-    /* States: */
-    --hoverState: hsla(0, 0%, 95%, 1);
-    --pressedState:hsla(0, 0%, 94%, 1);
-    --focusState: hsla(214, 100%, 41%, 1);
+  /* States: */
+  --hoverState: hsla(0, 0%, 95%, 1);
+  --pressedState: hsla(0, 0%, 94%, 1);
+  --focusState: hsla(214, 100%, 41%, 1);
 
-    /* Background Colors: */
-    --bgWhite: #ffffff;     
-    --bgStainWhite: hsla(0, 0%, 95%, 1);
+  /* Background Colors: */
+  --bgWhite: #ffffff;
+  --bgStainWhite: hsla(0, 0%, 95%, 1);
+
+  --lightGreen: hsla(153, 96%, 60%, 1);
 }
 
 /* UTILS: */
+.flex-plain {
+  display: flex;
+  align-items: center;
+}
 .flex {
-    display: flex;
-    justify-content: center;
-    align-items: center;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.custom-radius {
+  border-radius: 8px;
+}
+.gap {
+  gap: 8px;
+}
+.custom-fz {
+  font-size: 12px;
+}
+.font-color {
+  color: var(--lightFontClr);
+}
+.font-weight {
+  font-weight: 500;
+}
+.no-border {
+  border: none;
+}
+
+header {
+  padding-inline: 12px;
+  height: 56px;
+  background-color: var(--grey300);
+}
+
+.search-box {
+  width: 480px;
+  height: 32px;
+  position: relative;
+}
+
+.search-icon-container {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  left: 10px;
+}
+
+.search-box input {
+  width: 100%;
+  height: 100%;
+  background-color: var(--grey200);
+  border: none;
+  border: 1px solid var(--stroke200);
+  padding-left: 30px;
+  outline: none;
+  color: var(--lightFontClr);
+}
+.search-box input::placeholder {
+  font-weight: 500;
+  font-size: 13px;
+  color: var(--grey100);
+}
+
+.notification-container {
+  display: flex;
+  justify-content: flex-end;
+  flex: 1;
+  gap: 8px;
+}
+.notification-box {
+  width: 32px;
+  height: 32px;
+  background-color: var(--grey200);
+  display: grid;
+  place-items: center;
+}
+
+.user-container {
+  width: 142px;
+  height: 32px;
+  padding: 2px 2px 2px 8px;
+  background-color: var(--grey200);
+}
+.user-container p {
+  font-size: 12px;
+  font-weight: 500;
+  color: var(--lightFontClr);
+}
+.user {
+  width: 28px;
+  height: 28px;
+  display: grid;
+  place-items: center;
+  background-color: var(--lightGreen);
+}
+.user p {
+  font-weight: 500;
+  color: hsla(0, 0%, 0%, 0.4);
+}
+
+section {
+  min-height: calc(100dvh - 56px);
+  background-color: var(--bgStainWhite);
+  padding-top: calc(88px - 56px);
+}
+
+.section-content-container {
+  width: 800px;
+  margin-inline: auto;
+}
+
+.trial-box {
+  background-color: var(--grey300);
+  padding: 12px 16px;
+  margin-bottom: 14px;
+}
+
+.select-btn {
+  padding: 6px 12px;
+  background-color: var(--bgWhite);
+  color: var(--darkFontClr);
+  font-weight: 600;
+}
+
+.close-btn {
+  width: 32px;
+  height: 32px;
+}
+
+.setup-box {
+  padding: 8px;
+  border-radius: 18px;
+  border: 1px solid var(--stroke50);
+  background-color: var(--bgWhite);
+}
+
+.setup-guide {
+    font-weight: 600;
+    font-size: 14px;
+    color: var(--darkFontClr);
 }
