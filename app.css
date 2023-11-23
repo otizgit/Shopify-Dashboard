@@ -6,6 +6,8 @@
   box-sizing: border-box;
   font-family: "Inter", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI",
     Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+  list-style: none;
+  text-decoration: none;
 }
 
 :root {
@@ -52,6 +54,9 @@
 }
 .gap {
   gap: 8px;
+}
+.gap2 {
+  gap: 16px;
 }
 .custom-fz {
   font-size: 12px;
@@ -134,7 +139,7 @@ header {
 .search-box input::placeholder {
   font-weight: 500;
   font-size: 13px;
-  color: var(--grey100);
+  color: var(--lightFontClr);
 }
 
 .notification-container {
@@ -149,6 +154,7 @@ header {
   background-color: var(--grey200);
   display: grid;
   place-items: center;
+  border: 2px solid transparent;
 }
 
 .user-container {
@@ -285,7 +291,7 @@ section {
   line-height: 19.6px;
   margin-bottom: 10px;
 }
-.choose-text span {
+.choose-text span a {
   font-weight: 14px;
   color: var(--focusState);
 }
@@ -313,6 +319,15 @@ section {
   outline: 2px solid var(--focusState);
 }
 
+.import-btn {
+  padding: 6px 12px;
+  background: transparent;
+  color: var(--darkFontClr);
+  font-weight: 600;
+  border-radius: 6px;
+  border: 2px solid transparent;
+}
+
 .hidden-setup {
   background-color: var(--bgWhite);
 }
@@ -325,16 +340,43 @@ section {
 .hidden-content > div,
 .hidden-content-wrapper > div {
   overflow: hidden;
+  display: none;
 }
 .show-content {
   grid-template-rows: 1fr;
   margin-top: 20px;
 }
+.show-content > div {
+  display: block;
+}
 
 .setup-btn {
   transition: all 0.3s ease;
+  background: transparent;
+  width: 28px;
+  height: 28px;
+  border-radius: 6px;
+  border: 2px solid transparent;
+}
+.setup-btn:hover,
+.notification-btn:hover {
+  background: var(--hoverState);
+}
+.setup-btn:active,
+.notification-btn:active {
+  background: var(--pressedState);
+}
+.setup-btn:focus,
+.notification-btn:focus {
+  border: 2px solid var(--focusState);
 }
 
+.setup-select-btn-container {
+  background: transparent;
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+}
 .setup-select-btn-container svg {
   pointer-events: none;
 }
@@ -364,10 +406,8 @@ section {
   background-color: var(--bgWhite);
   border: 1px solid var(--stroke50);
   border-radius: 14px;
+  display: none;
   z-index: -1;
-  transition: all 0.3s ease;
-  transform: translateY(-110%);
-  opacity: 0;
   box-shadow: 0 4px 8px hsla(0, 0%, 0%, 0.05);
 }
 
@@ -390,15 +430,18 @@ section {
   transition: background-color 0.3s ease;
 }
 .store-links:hover,
-.notification-btn:hover {
+.notification-btn:hover,
+.import-btn:hover {
   background-color: hsla(0, 0%, 91%, 1);
 }
 .store-links:active,
-.notification-btn:active {
+.notification-btn:active,
+.import-btn:active {
   background-color: hsla(0, 0%, 88%, 1);
 }
 .store-links:focus,
-.notification-btn:focus {
+.notification-btn:focus,
+.import-btn:focus {
   border: 2px solid var(--focusState);
 }
 
@@ -406,6 +449,7 @@ section {
   display: flex;
   justify-content: start;
   flex-direction: column;
+  text-align: left;
 }
 
 .store-user-name {
@@ -429,9 +473,7 @@ section {
   border: 1px solid var(--stroke50);
   border-radius: 14px;
   z-index: -1;
-  opacity: 0;
-  transition: all 0.3s ease;
-  transform: translateY(-110%);
+  display: none;
   box-shadow: 0 4px 8px hsla(0, 0%, 0%, 0.05);
 }
 
@@ -450,6 +492,7 @@ section {
   width: 20px;
   height: 20px;
   border-radius: 4px;
+  background-color: transparent;
 }
 
 .notification-wrapper {
@@ -463,19 +506,18 @@ section {
 }
 
 .overlay {
-    position: fixed;
-    z-index: 2;
-    inset: 0;
-    transform: scale(0);
+  position: fixed;
+  z-index: 2;
+  inset: 0;
+  transform: scale(0);
 }
 
 .show-wrapper {
-  transform: translateY(0%);
-  opacity: 1;
+  display: block;
   z-index: 3;
 }
 .show-overlay {
-    transform: scale(1);
+  transform: scale(1);
 }
 
 @media (max-width: 1023px) {
@@ -531,11 +573,10 @@ section {
 }
 
 @media (max-width: 500px) {
-    .notification-box-container {
-      width: 95%;
-      margin-inline: auto;
-    }
-
+  .notification-box-container {
+    width: 95%;
+    margin-inline: auto;
+  }
 }
 @media (max-width: 360px) {
   .store-wrapper {

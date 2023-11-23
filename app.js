@@ -60,8 +60,17 @@ notificationBox.addEventListener("click", () => {
   overlay.classList.add("show-overlay");
 });
 
-overlay.addEventListener("click", () => {
+
+const hideOverlays = () => {
   overlay.classList.remove("show-overlay");
   storeWrapper.classList.remove("show-wrapper");
   notificationBoxContainer.classList.remove("show-wrapper");
+};
+
+overlay.addEventListener("click", hideOverlays);
+
+window.addEventListener("keydown", (e) => {
+  if (e.keyCode === 27) {
+    hideOverlays();
+  }
 });
