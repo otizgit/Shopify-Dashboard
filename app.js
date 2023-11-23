@@ -1,15 +1,24 @@
+// Get the button and setup container to expand the setup:
 const setupBtn = document.querySelector(".setup-btn");
 const setupIntroContainer = document.querySelector(".setup-intro-container");
 const hiddenContentWrapper = document.querySelector(".hidden-content-wrapper");
 
-//? Collapsing and Expanding the setup:
+//? Collapse and Expand the setup:
 setupBtn.addEventListener("click", () => {
   setupBtn.classList.toggle("rotate-btn");
   setupIntroContainer.classList.toggle("reveal-margin");
   hiddenContentWrapper.classList.toggle("show-content");
+
+  // Toggle the aria-expanded value
+  const isSetupExpanded = setupBtn.attributes["aria-expanded"].value;
+  if (isSetupExpanded) {
+    setupBtn.ariaExpanded = "true";
+  } else {
+    setupBtn.ariaExpanded = "false";
+  }
 });
 
-//! Handling the functionality of the accordion:
+//! Handle the functionality of the accordion:
 hiddenContentWrapper.addEventListener("click", (e) => {
   const target = e.target;
   if (target.classList.contains("setup-select-btn-container")) {
@@ -29,7 +38,7 @@ hiddenContentWrapper.addEventListener("click", (e) => {
       img.classList.add("remove-img");
     });
 
-    allSetupBtns.forEach(btn => {
+    allSetupBtns.forEach((btn) => {
       btn.innerHTML = `
       <svg
       width="24"
@@ -49,8 +58,8 @@ hiddenContentWrapper.addEventListener("click", (e) => {
         stroke-dasharray="5 5"
       />
       </svg>
-      `
-    })
+      `;
+    });
 
     target.innerHTML = `
     <svg
@@ -85,7 +94,7 @@ hiddenContentWrapper.addEventListener("click", (e) => {
   }
 });
 
-//* Handling the functionality of the nav buttons:
+// Get the elements for the nav functionality:
 const userContainer = document.querySelector(".user-container");
 const storeWrapper = document.querySelector(".store-wrapper");
 const notificationBox = document.querySelector(".notification-box");
@@ -94,12 +103,26 @@ const notificationBoxContainer = document.querySelector(
 );
 const overlay = document.querySelector(".overlay");
 
+//* Handle the functionality of the nav buttons:
 userContainer.addEventListener("click", () => {
+  // Run the function for collapsing and expanding the popup
   if (notificationBoxContainer.classList.contains("show-wrapper")) {
     notificationBoxContainer.classList.remove("show-wrapper");
   }
   storeWrapper.classList.toggle("show-wrapper");
   overlay.classList.add("show-overlay");
+
+  // Get the aria-expanded value:
+  const isUserContainerExpanded =
+    userContainer.attributes["aria-expanded"].value === "true";
+  if (isUserContainerExpanded) {
+    userContainer.ariaExpanded = "false";
+  } else {
+    userContainer.ariaExpanded = "true";
+    // Focus on the first button:
+    const intialFocusedButton = document.querySelector(".store-links-one");
+    intialFocusedButton.focus();
+  }
 });
 
 notificationBox.addEventListener("click", () => {
@@ -108,6 +131,20 @@ notificationBox.addEventListener("click", () => {
   }
   notificationBoxContainer.classList.toggle("show-wrapper");
   overlay.classList.add("show-overlay");
+
+  // Toggle the aria-expanded value:
+  const isNotificationExpanded =
+    notificationBox.attributes["aria-expanded"].value === "true";
+  if (isNotificationExpanded) {
+    notificationBox.ariaExpanded = "false";
+  } else {
+    notificationBox.ariaExpanded = "true";
+    // Focus the first element on click:
+    const notificationBtnOne = document.querySelector(
+      ".notification-btn:nth-child(1)"
+    );
+    notificationBtnOne.focus();
+  }
 });
 
 const hideOverlays = () => {
@@ -116,6 +153,7 @@ const hideOverlays = () => {
   notificationBoxContainer.classList.remove("show-wrapper");
 };
 
+// Click the overlay to close the nav popup:
 overlay.addEventListener("click", hideOverlays);
 
 // Running the hideOverlay function when we press the Esc key:
